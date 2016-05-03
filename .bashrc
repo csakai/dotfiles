@@ -1,6 +1,6 @@
-export NVM_DIR="/Users/csakai/.nvm"
+export NVM_DIR="~/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export PATH=/Users/csakai/mongodb/bin:$PATH
+export PATH=~/mongodb/bin:$PATH
 . ~/git-completion.bash
 . ~/git-prompt.sh
 export GIT_PS1_SHOWDIRTYSTATE=1
