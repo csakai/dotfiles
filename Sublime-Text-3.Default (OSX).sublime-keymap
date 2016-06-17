@@ -1,0 +1,5 @@
+[
+    { "keys": ["super+^"], "command": "toggle_sync_scroll" },
+    { "keys": ["super+v"], "command": "paste_and_indent" },
+    { "keys": ["super+shift+v"], "command": "paste" }
+]
