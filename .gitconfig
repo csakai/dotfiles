@@ -44,3 +44,5 @@
 	upd = "!f() { git fetch --all; git merge origin/HEAD; }; f"
 	upst = "!f() { src=HEAD; [ $# -ne 0 ] && src=$1; git rev-parse --abbrev-ref --symbolic-full-name $src@{u}; }; f"
 	wwe = config --local user.email chris.sakai@weightwatchers.com
+[push]
+	default = tracking
