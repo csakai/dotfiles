@@ -5,6 +5,7 @@
 	keys = config --get-regexp alias
 	ad = add
 	ada = add -A
+	adi = add -i
 	br = branch
 	brd = branch -d
 	brr = branch -r
@@ -12,8 +13,8 @@
 	nbr = branch --no-merged
 	mbr = branch --merged
 	ch = checkout
-	cht = "!sh -c \"if [ $# -ne 0 ]; then git fetch --all; git checkout --track origin/$1; fi\" -"
-	chb = "!sh -c \"if [ $# -ne 0 ]; then git fetch --all; git checkout -b $1 origin/HEAD; fi\" -"
+	cht = "!f() { if [ $# -ne 0 ]; then git fetch --all; git checkout --track origin/$1; fi; }; f"
+	chb = "!f() { if [ $# -ne 0 ]; then src=HEAD; git fetch --all; [ -z \"$2\" ] || src=$2; git checkout -b $1 origin/$src; fi; }; f"
 	cnfg = config
 	co = commit
 	coa = commit -a
@@ -25,17 +26,21 @@
 	fch = fetch
 	last = log -1 HEAD
 	lo = log
+	ls = branch --list
 	mrg = merge
 	nit = init
 	pll = pull
 	psh = push
 	psu = push --set-upstream origin HEAD
 	rmo = remote
-	rst = reset
-	sts = status
-	sync = "!sh -c \"git fetch --all -p; git reset --hard \\\"$(git rev-parse --abbrev-ref --symbolic-full-name @{u})\\\"\" -"
-	upd = "!sh -c \"git fetch --all; git merge origin/HEAD\" -"
-	wwe = git config --local user.email chris.sakai@weightwatchers.com
 	rsho = remote set-head origin
 	rsha = remote set-head origin -a
-	upst = rev-parse --abbrev-ref --symbolic-full-name @{u}
+	rst = reset
+	sbs = "!f() { git difftool -y -x \"colordiff -y -W $(tput cols)\" | less -R; }; f"
+	sts = status
+	stsh = stash
+	stshr = "!f() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1; git stash store -m $2 $rev; }; f"
+	sync = "!f() { git fetch --all -p; git reset --hard \"$(git rev-parse --abbrev-ref --symbolic-full-name @{u})\"; }; f"
+	upd = "!f() { git fetch --all; git merge origin/HEAD; }; f"
+	upst = "!f() { src=HEAD; [ $# -ne 0 ] && src=$1; git rev-parse --abbrev-ref --symbolic-full-name $src@{u}; }; f"
+	wwe = config --local user.email chris.sakai@weightwatchers.com
