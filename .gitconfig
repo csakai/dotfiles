@@ -2,7 +2,7 @@
 	name = Chris Sakai
 	email = cs.chris.sakai@gmail.com
 [alias]
-	keys = config --get-regexp alias
+    keys = "!f() { if [ $# -ne 0 ]; then CMD=\"grep $1\"; else CMD=\"cat\"; fi; $CMD <<< \"$(git config --get-regexp alias)\"; }; f"
 	ad = add
 	ada = add -A
 	adi = add -i
@@ -21,6 +21,7 @@
 	com = commit -m
 	coam = commit -am
 	dif = diff
+	difc = diff --cached
 	dis = diff --word-diff
 	fap = fetch --all -p
 	fch = fetch
@@ -32,11 +33,14 @@
 	pll = pull
 	psh = push
 	psu = push --set-upstream origin HEAD
+	rb = rebase
+	rbi = rebase -i
 	rmo = remote
 	rsho = remote set-head origin
 	rsha = remote set-head origin -a
 	rst = reset
 	sbs = "!f() { git difftool -y -x \"colordiff -y -W $(tput cols)\" | less -R; }; f"
+    s = status -s
 	sts = status
 	stsh = stash
 	stshr = "!f() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1; git stash store -m $2 $rev; }; f"
