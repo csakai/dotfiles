@@ -9,10 +9,7 @@ Found here: https://github.com/arialdomartini/oh-my-git
 Found here: https://tmux.github.io/
 
 ## Config
-I have split the tmux configuration into multiple files to make it easier to know where things are configured.
-Their root is the .tmux/config folder.
-
-TODO: Make a script that combines these configurations into one segmented .tmux.conf file
+I put comment banners to separate specific configuration pieces into sections. It makes it easier to find what's where.
 
 # Tmuxinator
 Save configurations for tmux!
