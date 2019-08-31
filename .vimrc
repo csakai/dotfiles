@@ -1,16 +1,14 @@
 call plug#begin('~/.vim/plugged')
 
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'digitaltoad/vim-pug'
 Plug 'avakhov/vim-yaml'
 Plug 'suan/vim-instant-markdown'
 Plug 'ap/vim-buftabline'
+Plug 'pangloss/vim-javascript'
+Plug 'amadeus/vim-xml'
+Plug 'amadeus/vim-jsx'
+Plug 'posva/vim-vue'
 Plug 'elzr/vim-json'
-Plug 'marcweber/vim-addon-mw-utils'
-Plug 'tomtom/tlib_vim'
-Plug 'garbas/vim-snipmate'
-Plug 'honza/vim-snippets'
-Plug 'isRuslan/vim-es6'
 Plug 'Galooshi/vim-import-js'
 Plug 'slim-template/vim-slim'
 Plug 'scrooloose/syntastic'
@@ -21,12 +19,15 @@ Plug 'tpope/vim-unimpaired'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'prettier/vim-prettier', {
-  \ 'do': 'yarn install',
-  \ 'for': ['javascript', 'css', 'less', 'scss' ] }
-" Plug 'jelera/vim-javascript-syntax'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
 
 call plug#end()
+
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+
+let g:jsx_ext_required = 0
 
 set wildignore+='*.swp,*/.git/**,*/coverage/**,*/log/**,*/tmp/**'
 let g:ctrlp_working_path_mode= 'ra'
@@ -36,6 +37,9 @@ let g:ctrlp_by_filename = 1
 " bind K to git grep word under cursor
 nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 xnoremap K :<C-U>Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
+
+" <Ctrl-l> redraws the screen and removes any search highlighting.
+nnoremap <silent> <C-l> :nohl<CR><C-l>
 
 let g:netrw_liststyle=3
 set tabstop=2
@@ -72,15 +76,18 @@ set colorcolumn=80
 set number
 set relativenumber
 
-" Code Folding for javascript
-"syntax region foldBraces start=/{/ end=/}/ skip=/"\|'\|`/ transparent fold keepend extend
-" setlocal foldmethod=syntax
-" setlocal foldlevel=99
-" setlocal foldmethod=indent
+" Code Folding for javascript, disable if things get too slow
+augroup javascript_folding
+  au!
+  au FileType javascript setlocal foldmethod=syntax
+augroup END
+
 au FileType javascript :set suffixesadd=.jsx,.js,.json
 " au FileType ruby :set suffixesadd=.rb
 set path=.,path/to/alias/root,node_nodules
 set suffixesadd=.js,.jsx
 set regexpengine=2 " use new engine
+
+set backupcopy=yes " recompilation for webpack thing
 
 filetype plugin on

@@ -1,52 +1,74 @@
+[color]
+  ui = true
 [user]
 	name = Chris Sakai
 	email = cs.chris.sakai@gmail.com
 [alias]
-    keys = "!f() { if [ $# -ne 0 ]; then CMD=\"grep $1\"; else CMD=\"cat\"; fi; $CMD <<< \"$(git config --get-regexp alias)\"; }; f"
-	ad = add
-	ada = add -A
-	adi = add -i
+  uglykeys = config --get-regexp alias
+  keys = "!f() { if [ $# -ne 0 ]; then git uglykeys | grep $1; else git keylist; fi; }; f"
+  keylist = "!f() { git uglykeys | less; }; f"
+
+	a = add
+	aa = add -A
+	ai = add -i
+
 	br = branch
 	brd = branch -d
 	brr = branch -r
 	brm = branch -m
 	nbr = branch --no-merged
 	mbr = branch --merged
+	ls = branch --list
+
+	c = commit
+  cv = commit -v
+
 	ch = checkout
 	cht = "!f() { if [ $# -ne 0 ]; then git fetch --all; git checkout --track origin/$1; fi; }; f"
-	chb = "!f() { if [ $# -ne 0 ]; then src=HEAD; git fetch --all; [ -z \"$2\" ] || src=$2; git checkout -b $1 origin/$src; fi; }; f"
+	sync = reset --hard @{u}
+	chb = "!f() { if [ $# -ne 0 ]; then src=HEAD; git fp; [ -z \"$2\" ] || src=$2; git checkout -b $1 origin/$src; fi; }; f"
+	upd = "!f() { git fa; git merge origin/HEAD; }; f"
+	fsync = "!f() { git fa; git reset --hard \"$(git nicename @{u})\"; }; f"
+
 	cnfg = config
-	co = commit
-	coa = commit -a
-	com = commit -m
-	coam = commit -am
-	dif = diff
-	difc = diff --cached
-	dis = diff --word-diff
-	fap = fetch --all -p
-	fch = fetch
+
+	d = diff
+	dc = diff --cached
+	ds = diff --word-diff
+	sbs = "!f() { git difftool -y -x \"colordiff -y -W $(tput cols)\" | less -R; }; f"
+
+  f = fetch -p
+	fa = fetch --all -p
+
 	last = log -1 HEAD
-	lo = log
-	ls = branch --list
+
 	mrg = merge
-	nit = init
-	pll = pull
-	psh = push
-	psu = push --set-upstream origin HEAD
+
+  nicename = rev-parse --abbrev-ref --symbolic-full-name
+
+	p = push
+	ps = push --set-upstream origin HEAD
+
 	rb = rebase
 	rbi = rebase -i
+  rba = rebase --abort
+  rbc = rebase --continue
+  rbs = rebase --skip
+
 	rmo = remote
 	rsho = remote set-head origin
 	rsha = remote set-head origin -a
+
 	rst = reset
-	sbs = "!f() { git difftool -y -x \"colordiff -y -W $(tput cols)\" | less -R; }; f"
-    s = status -s
-	sts = status
+
+  s = status
+  ss = status -s
+
 	stsh = stash
 	stshr = "!f() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1; git stash store -m $2 $rev; }; f"
-	sync = "!f() { git fetch --all -p; git reset --hard \"$(git rev-parse --abbrev-ref --symbolic-full-name @{u})\"; }; f"
-	upd = "!f() { git fetch --all; git merge origin/HEAD; }; f"
-	upst = "!f() { src=HEAD; [ $# -ne 0 ] && src=$1; git rev-parse --abbrev-ref --symbolic-full-name $src@{u}; }; f"
-	wwe = config --local user.email chris.sakai@weightwatchers.com
+
+	upst = "!f() { src=HEAD; [ $# -ne 0 ] && src=$1; git nicename $src@{u}; }; f"
 [push]
 	default = tracking
+[core]
+	editor = vim
