@@ -1,5 +1,10 @@
-# git-completion.bash
-Found here: https://github.com/git/git/blob/master/contrib/completion/git-completion.bash
+# Setup
+
+```bash
+curl -K https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/git-completion.bash
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+curl -K https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh -o ~/hub.bash_completion.bash
+```
 
 # Oh My Git!
 Opinionated Git Prompt

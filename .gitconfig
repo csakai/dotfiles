@@ -25,10 +25,10 @@
 
 	ch = checkout
 	cht = "!f() { if [ $# -ne 0 ]; then git fetch --all; git checkout --track origin/$1; fi; }; f"
-	sync = reset --hard @{u}
-	chb = "!f() { if [ $# -ne 0 ]; then src=HEAD; git fp; [ -z \"$2\" ] || src=$2; git checkout -b $1 origin/$src; fi; }; f"
+	; sync = reset --hard @{u}
+	chb = "!f() { if [ $# -ne 0 ]; then src=HEAD; git f; [ -z \"$2\" ] || src=$2; git checkout -b $1 origin/$src; fi; }; f"
 	upd = "!f() { git fa; git merge origin/HEAD; }; f"
-	fsync = "!f() { git fa; git reset --hard \"$(git nicename @{u})\"; }; f"
+	; fsync = "!f() { git fa; git reset --hard \"$(git nicename @{u})\"; }; f"
 
 	cnfg = config
 
@@ -72,3 +72,4 @@
 	default = tracking
 [core]
 	editor = vim
+  excludesfile = ~/.gitignore
