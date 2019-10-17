@@ -1,13 +1,18 @@
+let g:instant_markdown_slow = 1
 call plug#begin('~/.vim/plugged')
 
 Plug 'ConradIrwin/vim-bracketed-paste'
 Plug 'avakhov/vim-yaml'
 Plug 'suan/vim-instant-markdown'
 Plug 'ap/vim-buftabline'
+Plug 'jparise/vim-graphql'
 Plug 'pangloss/vim-javascript'
 Plug 'amadeus/vim-xml'
 Plug 'amadeus/vim-jsx'
 Plug 'leshill/vim-json'
+Plug 'leafgarland/typescript-vim'
+Plug 'ianks/vim-tsx'
+Plug 'Quramy/tsuquyomi'
 Plug 'posva/vim-vue'
 Plug 'Galooshi/vim-import-js'
 Plug 'airblade/vim-gitgutter'
@@ -22,8 +27,25 @@ Plug 'w0rp/ale'
 
 call plug#end()
 
+autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
+
 let g:javascript_plugin_jsdoc = 1
 let g:javascript_plugin_flow = 1
+
+let g:ale_linters = {
+\   'javascript': ['eslint'],
+\   'typescript': ['tsserver', 'tslint'],
+\   'vue': ['eslint']
+\}
+
+let g:ale_fixers = {
+\    'javascript': ['eslint'],
+\    'typescript': ['prettier'],
+\    'vue': ['eslint'],
+\    'scss': ['prettier'],
+\    'html': ['prettier']
+\}
+let g:ale_fix_on_save = 1
 
 let g:jsx_ext_required = 0
 
