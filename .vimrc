@@ -81,12 +81,12 @@ let g:buftabline_numbers=1
 let g:buftabline_indicators='on'
 let g:buftabline_separators='on'
 " Highlight current line automatically
-set cursorline
-hi CursorLine cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=DarkGray guifg=NONE
+" set cursorline
+" hi CursorLine cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=DarkGray guifg=NONE
 
 "Highlight current column automatically - useful with space-delimited
 "languages.
-set cursorcolumn
+" set cursorcolumn
 "Highlight overflow column
 set colorcolumn=80
 " highlight OverLength ctermbg=DarkGray ctermfg=NONE guibg=#592929
