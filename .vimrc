@@ -21,8 +21,10 @@ Plug 'bogado/file-line'
 Plug 'tpope/vim-unimpaired'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-commentary'
+Plug 'haya14busa/is.vim'
+Plug 'osyo-manga/vim-anzu'
+Plug 'osyo-manga/vim-over'
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'haya14busa/incsearch.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 
@@ -59,28 +61,19 @@ let g:ctrlp_by_filename = 1
 nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 xnoremap K :<C-U>Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
+"vim-anzu shortcuts
+map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
+map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+set incsearch
+set hlsearch
+
 let g:netrw_liststyle=3
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
 set softtabstop=2
-
 syntax on
-" incsearch config: searches for matches as the pattern is being typed
-" automatically :nohls after entering insert mode or movement
-set hlsearch
-let g:incsearch#auto_nohlsearch = 1
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
-
 " Fix backspace on initial use in insert mode
 set backspace=indent,eol,start
 
