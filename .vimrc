@@ -22,15 +22,13 @@ Plug 'tpope/vim-unimpaired'
 Plug 'AndrewRadev/splitjoin.vim'
 Plug 'tpope/vim-commentary'
 Plug 'ctrlpvim/ctrlp.vim'
+Plug 'haya14busa/incsearch.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
 
 call plug#end()
 
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
 
 let g:ale_linters = {
 \   'javascript': ['eslint'],
@@ -47,6 +45,9 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 set wildignore+='*.swp,*/.git/**,*/coverage/**,*/log/**,*/tmp/**'
@@ -58,17 +59,28 @@ let g:ctrlp_by_filename = 1
 nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 xnoremap K :<C-U>Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 
-" <Ctrl-l> redraws the screen and removes any search highlighting.
-nnoremap <silent> <C-l> :nohl<CR><C-l>
-
 let g:netrw_liststyle=3
 set tabstop=2
 set shiftwidth=2
 set expandtab
 set smarttab
 set softtabstop=2
+
 syntax on
+" incsearch config: searches for matches as the pattern is being typed
+" automatically :nohls after entering insert mode or movement
 set hlsearch
+let g:incsearch#auto_nohlsearch = 1
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
+
 " Fix backspace on initial use in insert mode
 set backspace=indent,eol,start
 
@@ -80,17 +92,11 @@ let g:buftabline_numbers=1
 "not sure if these two actually do anything:
 let g:buftabline_indicators='on'
 let g:buftabline_separators='on'
-" Highlight current line automatically
-" set cursorline
-" hi CursorLine cterm=NONE ctermbg=DarkGray ctermfg=NONE guibg=DarkGray guifg=NONE
 
-"Highlight current column automatically - useful with space-delimited
-"languages.
-" set cursorcolumn
-"Highlight overflow column
-set colorcolumn=80
-" highlight OverLength ctermbg=DarkGray ctermfg=NONE guibg=#592929
-" match OverLength /\%81v.\+/
+colorscheme slate
+"Highlight characters past 80 columns
+highlight OverLength ctermbg=White ctermfg=Black
+match OverLength /\%81v.\+/
 
 " starts vim in relative numbering mode
 set number
