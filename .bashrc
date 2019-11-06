@@ -17,11 +17,11 @@ export EDITOR='vim'
 export PS1='\u @ \w  '
 #oh-my-git found here: https://github.com/arialdomartini/oh-my-git
 omg() {
-  . ~/.oh-my-git/prompt.sh
+  . ~/code/oh-my-git/prompt.sh
 }
 
 #helpful aliases
-alias ls='ls -FGh --color=auto'
+alias ls='ls -FGh'
 alias la='ls -a'
 alias ll='ls -l'
 alias lal='ls -al'
@@ -49,25 +49,29 @@ alias ..='sd'
 #alias tms="tmuxinator start"
 
 #OSX-specific
-#Run this when the trackpad stops responding to more-than-two-finger gestures
-# alias fixtrackpad="sudo killall -KILL Dock"
 
-# alias vim=/usr/local/Cellar/vim/8.0.0647/bin/vim
+alias vim=/usr/local/Cellar/vim/8.1.2150/bin/vim
 
-# [[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
+# loads autojump https://github.com/wting/autojump
+[[ -s $(brew --prefix)/etc/profile.d/autojump.sh ]] && . $(brew --prefix)/etc/profile.d/autojump.sh
 
 #WSL-specific
-alias mysqlstart='sudo service mysql start'
+# alias mysqlstart='sudo service mysql start'
 
 # Hacky stuff to remove windows-specific things from PATH
 # PATH=$(echo :$PATH: | sed -e 's,:/mnt/c/Program Files/nodejs:,:,g' -e 's/^://' -e 's/:$//')
 # PATH=$(echo :$PATH: | sed -e 's,:/mnt/c/Users/csakai/AppData/Roaming/npm:,:,g' -e 's/^://' -e 's/:$//')
 
 # Add Utils and Enhancers to PATH, must be at bottom of .bashrc
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-export PATH="$HOME/.rbenv/plugins/ruby-build/bin:$PATH"
+# export PATH="$HOME/.rbenv/bin:$PATH"
+# eval "$(rbenv init -)"
 
 export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+[ -s "/usr/local/opt/nvm/nvm.sh" ] && \. "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/usr/local/opt/nvm/bash_completion" ] && \. "/usr/local/opt/nvm/bash_completion"  # This loads nvm bash_completion
+
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
