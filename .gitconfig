@@ -1,27 +1,27 @@
 [color]
-  ui = true
+	ui = true
 [user]
 	name = Chris Sakai
 	email = cs.chris.sakai@gmail.com
 [alias]
-  uglykeys = config --get-regexp alias
-  keys = "!f() { if [ $# -ne 0 ]; then git uglykeys | grep $1; else git keylist; fi; }; f"
-  keylist = "!f() { git uglykeys | less; }; f"
+	uglykeys = config --get-regexp alias
+	keys = "!f() { if [ $# -ne 0 ]; then git uglykeys | grep $1; else git keylist; fi; }; f"
+	keylist = "!f() { git uglykeys | less; }; f"
 
 	a = add
 	aa = add -A
 	ai = add -i
 
+	b = branch --list
 	br = branch
 	brd = branch -d
 	brr = branch -r
 	brm = branch -m
 	nbr = branch --no-merged
 	mbr = branch --merged
-	ls = branch --list
 
 	c = commit
-  cv = commit -v
+	cv = commit -v
 
 	ch = checkout
 	cht = "!f() { if [ $# -ne 0 ]; then git fetch --all; git checkout --track origin/$1; fi; }; f"
@@ -35,39 +35,46 @@
 	ds = diff --word-diff
 	sbs = "!f() { git difftool -y -x \"colordiff -y -W $(tput cols)\" | less -R; }; f"
 
-  f = fetch -p
+	f = fetch -p
 	fa = fetch --all -p
 
+	l = log
+	lf = log --format=fuller
+	lp = log -p
+	ls = log --stat
 	last = log -1 HEAD
 
 	mrg = merge
 
-  nicename = rev-parse --abbrev-ref --symbolic-full-name
+	nicename = rev-parse --abbrev-ref --symbolic-full-name
+
+	o = "!f() { vim $(git status --porcelain | awk '{print $2}'); }; f"
 
 	p = push
 	ps = push --set-upstream origin HEAD
 
 	rb = rebase
 	rbi = rebase -i
-  rba = rebase --abort
-  rbc = rebase --continue
-  rbs = rebase --skip
+	rba = rebase --abort
+	rbc = rebase --continue
+	rbs = rebase --skip
 
 	rmo = remote
 	rsho = remote set-head origin
 	rsha = remote set-head origin -a
 
 	rst = reset
+	rsth = reset --hard
 
-  s = status
-  ss = status -s
+	s = status
+	ss = status -s
 
-	sh = stash
-	shr = "!f() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1; git stash store -m $2 $rev; }; f"
+	stsh = stash
+	stshr = "!f() { rev=$(git rev-parse $1) && git stash drop $1 || exit 1; git stash store -m $2 $rev; }; f"
 
 	upst = "!f() { src=HEAD; [ $# -ne 0 ] && src=$1; git nicename $src@{u}; }; f"
 [push]
 	default = tracking
 [core]
 	editor = vim
-  excludesfile = ~/.gitignore
+	excludesfile = ~/.gitignore
