@@ -32,6 +32,9 @@ call plug#end()
 
 autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
 
+let g:javascript_plugin_jsdoc = 1
+let g:javascript_plugin_flow = 1
+
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'typescript': ['tsserver', 'tslint'],
@@ -47,9 +50,9 @@ let g:ale_fixers = {
 \}
 let g:ale_fix_on_save = 1
 
+" tsuquyomi show function signature in preview
+autocmd FileType typescript setlocal completeopt+=menu,preview
 
-let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
 let g:jsx_ext_required = 0
 
 set wildignore+='*.swp,*/.git/**,*/coverage/**,*/log/**,*/tmp/**'
@@ -90,6 +93,7 @@ colorscheme slate
 "Highlight characters past 80 columns
 highlight OverLength ctermbg=White ctermfg=Black
 match OverLength /\%81v.\+/
+
 
 " starts vim in relative numbering mode
 set number
