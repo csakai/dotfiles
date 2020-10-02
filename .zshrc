@@ -77,7 +77,8 @@ typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(copyfile jira jsontools last-working-dir npm osx per-directory-history tmux web-search yarn)
+# plugins=(copyfile jira jsontools last-working-dir npm osx per-directory-history tmux web-search yarn)
+plugins=(copyfile jira jsontools last-working-dir npm osx tmux web-search yarn)
 
 JIRA_RAPID_BOARD="true"
 JIRA_URL="https://rosedigital.atlassian.net/"
@@ -111,6 +112,26 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+eval "$(hub alias -s)"
+
 export NVM_DIR="$HOME/.nvm"
 [ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
+# Load AWS config in node.js SDK
+export AWS_SDK_LOAD_CONFIG=1
+
+# tabtab source for packages
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+
+# tabtab source for serverless package
+# uninstall by removing these lines or running `tabtab uninstall serverless`
+[[ -f /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/serverless.zsh
+# tabtab source for sls package
+# uninstall by removing these lines or running `tabtab uninstall sls`
+[[ -f /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/sls.zsh
+
+# tabtab source for slss package
+# uninstall by removing these lines or running `tabtab uninstall slss`
+[[ -f /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/slss.zsh
