@@ -2,7 +2,6 @@ let g:instant_markdown_slow = 1
 call plug#begin('~/.vim/plugged')
 
 Plug 'ConradIrwin/vim-bracketed-paste'
-Plug 'avakhov/vim-yaml'
 Plug 'suan/vim-instant-markdown'
 Plug 'ap/vim-buftabline'
 Plug 'jparise/vim-graphql'
@@ -14,6 +13,7 @@ Plug 'leafgarland/typescript-vim'
 Plug 'ianks/vim-tsx'
 Plug 'Quramy/tsuquyomi'
 Plug 'posva/vim-vue'
+Plug 'pedrohdz/vim-yaml-folds'
 Plug 'Galooshi/vim-import-js'
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
@@ -27,38 +27,53 @@ Plug 'osyo-manga/vim-over'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'w0rp/ale'
+Plug 'pbrisbin/vim-mkdir'
 
 call plug#end()
 
-autocmd FileType typescript setlocal formatprg=prettier\ --parser\ typescript
-
 let g:javascript_plugin_jsdoc = 1
-let g:javascript_plugin_flow = 1
+" let g:javascript_plugin_flow = 1
 
+" for standard projects:
 let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'typescript': ['tsserver', 'tslint'],
-\   'vue': ['eslint']
+\   'javascript': ['standard']
 \}
 
 let g:ale_fixers = {
-\    'javascript': ['eslint'],
-\    'typescript': ['prettier'],
-\    'vue': ['eslint'],
-\    'scss': ['prettier'],
-\    'html': ['prettier']
+\    'javascript': ['standard']
 \}
-let g:ale_fix_on_save = 1
+" for eslint projects:
+" let g:ale_linters = {
+" \   'javascript': ['eslint'],
+" \   'typescript': ['tsserver', 'tslint'],
+" \   'vue': ['eslint']
+" \}
+
+" let g:ale_fixers = {
+" \    'javascript': ['eslint'],
+" \    'vue': ['eslint'],
+" \}
+
+let g:ale_fix_on_save = 0
+
+let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_sign_error = '✘'
+let g:ale_sign_warning = '⚠'
+let g:ale_lint_on_text_changed = 'never'
 
 " tsuquyomi show function signature in preview
 autocmd FileType typescript setlocal completeopt+=menu,preview
+
+" correct indentation for yaml
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+
+set foldlevelstart=20
 
 let g:jsx_ext_required = 0
 
 set wildignore+='*.swp,*/.git/**,*/coverage/**,*/log/**,*/tmp/**'
 let g:ctrlp_working_path_mode= 'ra'
 let g:ctrlp_user_command = ['.git', 'cd %s && git ls-files . --cached --exclude-standard --others']
-let g:ctrlp_by_filename = 1
 
 " bind K to git grep word under cursor
 nnoremap K :Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
@@ -67,6 +82,8 @@ xnoremap K :<C-U>Ggrep! "\b<C-R><C-W>\b"<CR>:cw<CR>
 "vim-anzu shortcuts
 map n <Plug>(is-nohl)<Plug>(anzu-n-with-echo)
 map N <Plug>(is-nohl)<Plug>(anzu-N-with-echo)
+nmap * <Plug>(is-nohl)<Plug>(anzu-star-with-echo)
+nmap # <Plug>(is-nohl)<Plug>(anzu-sharp-with-echo)
 set incsearch
 set hlsearch
 
@@ -94,10 +111,11 @@ colorscheme slate
 highlight OverLength ctermbg=White ctermfg=Black
 match OverLength /\%81v.\+/
 
-
 " starts vim in relative numbering mode
 set number
 set relativenumber
+
+set clipboard=unnamed
 
 " Code Folding for javascript, disable if things get too slow
 augroup javascript_folding
