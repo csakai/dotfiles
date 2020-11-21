@@ -477,7 +477,7 @@ mouse:
 # binding with the same triggers is defined. To unset a default binding, it can
 # be mapped to the `ReceiveChar` action. Alternatively, you can use `None` for
 # a no-op if you do not wish to receive input characters for that binding.
-key_bindings:
+# key_bindings:
   # (Windows, Linux, and BSD only)
   #- { key: V,        mods: Control|Shift, action: Paste            }
   #- { key: C,        mods: Control|Shift, action: Copy             }
@@ -492,21 +492,22 @@ key_bindings:
   #- { key: Return,   mods: Alt,           action: ToggleFullscreen }
 
   # (macOS issue#3188 tempfix)
-  - { key: Key0,      mods: Command,            action: None }
-  - { key: Equals,    mods: Command,            action: None }
-  - { key: Add,       mods: Command,            action: None }
-  - { key: Minus,     mods: Command,            action: None }
-  - { key: K,         mods: Command,            action: None }
-  - { key: V,         mods: Alt,                action: Paste }
-  - { key: V,         mods: Command,            action: None }
-  - { key: X,         mods: Command,            action: None }
-  - { key: C,         mods: Command,            action: None }
-  - { key: M,         mods: Command,            action: None }
-  - { key: H,         mods: Command,            action: None }
-  - { key: Q,         mods: Command,            action: None }
-  - { key: W,         mods: Command,            action: None }
-  - { key: F,         mods: Command,            action: None }
-  - { key: Return,    mods: Command,            action: None }
+  # Recommented
+  # - { key: Key0,      mods: Command,            action: None }
+  # - { key: Equals,    mods: Command,            action: None }
+  # - { key: Add,       mods: Command,            action: None }
+  # - { key: Minus,     mods: Command,            action: None }
+  # - { key: K,         mods: Command,            action: None }
+  # - { key: V,         mods: Alt,                action: Paste }
+  # - { key: V,         mods: Command,            action: None }
+  # - { key: X,         mods: Command,            action: None }
+  # - { key: C,         mods: Command,            action: None }
+  # - { key: M,         mods: Command,            action: None }
+  # - { key: H,         mods: Command,            action: None }
+  # - { key: Q,         mods: Command,            action: None }
+  # - { key: W,         mods: Command,            action: None }
+  # - { key: F,         mods: Command,            action: None }
+  # - { key: Return,    mods: Command,            action: None }
 
   # (macOS only)
   #- { key: Key0,   mods: Command,         action: ResetFontSize    }
@@ -558,4 +559,3 @@ key_bindings:
   #- { key: PageDown,  mods: Shift,   action: ScrollPageDown, mode: ~Alt       }
   #- { key: Home,      mods: Shift,   action: ScrollToTop,    mode: ~Alt       }
   #- { key: End,       mods: Shift,   action: ScrollToBottom, mode: ~Alt       }
-
