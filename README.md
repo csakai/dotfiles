@@ -9,6 +9,8 @@ curl -K https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_complet
 # Oh My Zsh!
 * Specific issue with OSX: https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
 
+# Terminal font for Powerline
+https://github.com/powerline/fonts/blob/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
 # Oh My Git!
 Opinionated Git Prompt
 Found here: https://github.com/arialdomartini/oh-my-git
