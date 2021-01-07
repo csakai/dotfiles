@@ -9,9 +9,6 @@ curl -K https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_complet
 # Oh My Zsh!
 * Specific issue with OSX: https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
 
-# Terminal font for Powerline
-https://github.com/powerline/fonts/blob/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
-
 # Oh My Git!
 Opinionated Git Prompt
 Found here: https://github.com/arialdomartini/oh-my-git
@@ -22,7 +19,25 @@ Found here: https://github.com/arialdomartini/oh-my-git
 xcode-select --install
 # Modify save location for Grab.app
 defaults write com.apple.screencapture ~/screencaps
+# Install Homebrew
+/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
+
+# Alacritty
+Terminal Emulator (TODO)
+```bash
+brew install --cask alacritty
+```
+
+# Terminal font for Powerline
+https://github.com/powerline/fonts/blob/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
+
+```bash
+# only need to do this once for any cask font
+brew tap homebrew/cask-fonts
+brew install --cask font-droid-sans-mono-nerd-font
+```
+
 # Tmux
 Found here: https://tmux.github.io/
 
