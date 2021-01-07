@@ -102,23 +102,25 @@ window:
 # Font configuration
 font:
   normal:
-    # family: FiraMono Nerd Font Mono
-    family: MesloLGS NF
-    style: Regular
+    # family: Menlo
+    # style: Regular
+    family: DroidSansMono Nerd Font
+    style: Book
   bold:
-    # family: FiraMono Nerd Font Mono
-    family: MesloLGS NF
-    style: Bold
-  italic:
-    family: MesloLGS NF
-    style: Italic
-    # family: FiraMono Nerd Font Mono
-    # style: Medium
-  bold_italic:
-    family: MesloLGS NF
-    style: Bold Italic
-    # family: FiraMono Nerd Font Mono
+    # family: Menlo
     # style: Bold
+    family: DroidSansMono Nerd Font
+    style: Book
+  italic:
+    # family: Menlo
+    # style: Italic
+    family: DroidSansMono Nerd Font
+    style: Book
+  bold_italic:
+    # family: Menlo
+    # style: Bold Italic
+    family: DroidSansMono Nerd Font
+    style: Book
   offset:
     x: 0
     y: 5
