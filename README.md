@@ -6,6 +6,9 @@ curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.c
 curl -K https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh -o ~/hub.bash_completion.bash
 ```
 
+# Oh My Zsh!
+* Specific issue with OSX: https://github.com/ohmyzsh/ohmyzsh/issues/6835#issuecomment-390216875
+
 # Oh My Git!
 Opinionated Git Prompt
 Found here: https://github.com/arialdomartini/oh-my-git
