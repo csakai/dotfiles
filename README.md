@@ -11,10 +11,18 @@ curl -K https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_complet
 
 # Terminal font for Powerline
 https://github.com/powerline/fonts/blob/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
+
 # Oh My Git!
 Opinionated Git Prompt
 Found here: https://github.com/arialdomartini/oh-my-git
 
+# OSX setup things
+```bash
+# Install xcode Command Line Tools
+xcode-select --install
+# Modify save location for Grab.app
+defaults write com.apple.screencapture ~/screencaps
+```
 # Tmux
 Found here: https://tmux.github.io/
 
