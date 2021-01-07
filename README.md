@@ -21,6 +21,10 @@ xcode-select --install
 defaults write com.apple.screencapture ~/screencaps
 # Install Homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+brew install --cask slack
+brew install --cask google-chrome
+# windowing manager
+brew install --cask rectangle
 ```
 
 # Alacritty
