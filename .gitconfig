@@ -11,6 +11,7 @@
 	a = add
 	aa = add -A
 	ai = add -i
+	ap = add -p
 
 	b = branch --list
 	br = branch
@@ -76,9 +77,31 @@
 [push]
 	default = tracking
 [core]
-	editor = vim
+	editor = nvim
 	excludesfile = ~/.gitignore
+	ignorecase = false
+	; pager = diff-so-fancy | less --tabs=4 -RFX
 [pager]
   branch = false
 [url "git@github.com:"]
 	insteadOf = https://github.com/
+; [interactive]
+; 	diffFilter = diff-so-fancy --patch
+; [color "diff-highlight"]
+; 	oldNormal = red bold
+; 	oldHighlight = red bold 52
+; 	newNormal = green bold
+; 	newHighlight = green bold 22
+; [color "diff"]
+; 	meta = 11
+; 	frag = magenta bold
+; 	func = 146 bold
+; 	commit = yellow bold
+; 	old = red bold
+; 	new = green bold
+; 	whitespace = red reverse
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
