@@ -1,8 +1,9 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+ZSH_DISABLE_COMPFIX=true
 # Path to your oh-my-zsh installation.
-export ZSH="/Users/chrissakai/.oh-my-zsh"
+export ZSH="/Users/csakai/.oh-my-zsh"
 
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
@@ -77,11 +78,8 @@ typeset -g POWERLEVEL9K_TRANSIENT_PROMPT=off
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-# plugins=(copyfile jira jsontools last-working-dir npm osx per-directory-history tmux web-search yarn)
-plugins=(copyfile jira jsontools last-working-dir npm osx tmux web-search yarn)
-
-JIRA_RAPID_BOARD="true"
-JIRA_URL="https://rosedigital.atlassian.net/"
+# plugins=(copyfile jira jsontools last-working-dir npm macos per-directory-history tmux web-search yarn)
+plugins=(copyfile jsontools last-working-dir npm macos tmux web-search yarn)
 
 ZSH_TMUX_AUTOSTART="true"
 source $ZSH/oh-my-zsh.sh
@@ -112,11 +110,17 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-eval "$(hub alias -s)"
+# doesn't actually work, find the blog post again :(
+# Up key for back-search during Ctrl-R
+bindkey "^[[A" history-search-backward
 
-export NVM_DIR="$HOME/.nvm"
-[ -s "/usr/local/opt/nvm/nvm.sh" ] && . "/usr/local/opt/nvm/nvm.sh"  # This loads nvm
-[ -s "/usr/local/opt/nvm/etc/bash_completion.d/nvm" ] && . "/usr/local/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# doesn't actually work, find the blog post again :(
+# Down key for forward-search during Ctrl-R
+bindkey "^[[B" history-search-forward
+
+export EDITOR='nvim'
+
+eval "$(hub alias -s)"
 
 # Load AWS config in node.js SDK
 export AWS_SDK_LOAD_CONFIG=1
@@ -124,14 +128,6 @@ export AWS_SDK_LOAD_CONFIG=1
 # tabtab source for packages
 # uninstall by removing these lines
 [[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
-
-# tabtab source for serverless package
-# uninstall by removing these lines or running `tabtab uninstall serverless`
-[[ -f /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/serverless.zsh ]] && . /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/serverless.zsh
-# tabtab source for sls package
-# uninstall by removing these lines or running `tabtab uninstall sls`
-[[ -f /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/sls.zsh ]] && . /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/sls.zsh
-
-# tabtab source for slss package
-# uninstall by removing these lines or running `tabtab uninstall slss`
-[[ -f /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/slss.zsh ]] && . /Users/chrissakai/code/nyl-services/node_modules/tabtab/.completions/slss.zsh
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
