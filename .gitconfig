@@ -34,6 +34,8 @@
 	d = diff
 	dc = diff --cached
 	ds = diff --word-diff
+	dw = diff -w --word-diff-regex='[^[:space:]]'
+	; haven't used in some time
 	sbs = "!f() { git difftool -y -x \"colordiff -y -W $(tput cols)\" | less -R; }; f"
 
 	f = fetch -p
@@ -80,6 +82,7 @@
 	editor = nvim
 	excludesfile = ~/.gitignore
 	ignorecase = false
+	whitespace = "-trailing-space,-indent-with-non-tab,-tab-in-indent"
 	; pager = diff-so-fancy | less --tabs=4 -RFX
 [pager]
   branch = false
@@ -105,3 +108,9 @@
 	process = git-lfs filter-process
 	required = true
 	clean = git-lfs clean -- %f
+
+[credential]
+	helper =
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
