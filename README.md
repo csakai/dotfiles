@@ -27,6 +27,22 @@ brew install --cask google-chrome
 brew install --cask rectangle
 ```
 
+## VS Code
+In order to disable the default behavior of MacOS where if you hold a key, it gives you the option to accent characters, we can override defaults for VS Code only. This is especially useful for vim navigation in VS Code. See this [stack overflow thread](https://stackoverflow.com/questions/39972335/how-do-i-press-and-hold-a-key-and-have-it-repeat-in-vscode).
+
+> To disable the Apple press and hold for VSCode only, run this command in a terminal:
+
+```sh
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false
+```
+> Then restart VSCode.
+
+> To re-enable, run this command in a terminal:
+
+```sh
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool true
+```
+
 # Alacritty
 Terminal Emulator (TODO)
 ```bash
