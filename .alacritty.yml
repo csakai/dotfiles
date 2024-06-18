@@ -105,37 +105,27 @@ font:
     # family: FiraMono Nerd Font Mono
     # family: MesloLGS NF
     # family: Menlo
-    # style: Regular
-    # family: DroidSansMono Nerd Font
-    # style: Book
     family: Droid Sans Mono for Powerline
     style: Regular
   bold:
     # family: FiraMono Nerd Font Mono
     # family: MesloLGS NF
     # family: Menlo
-    # family: DroidSansMono Nerd Font
-    # style: Book
     family: Droid Sans Mono for Powerline
     style: Bold
   italic:
     # family: FiraMono Nerd Font Mono
     # family: MesloLGS NF
     # family: Menlo
-    # style: Medium
-    # family: DroidSansMono Nerd Font
-    # style: Book
     family: Droid Sans Mono for Powerline
     style: Italic
   bold_italic:
     # family: FiraMono Nerd Font Mono
     # family: MesloLGS NF
     # family: Menlo
-    # style: Bold
-    # family: DroidSansMono Nerd Font
-    # style: Book
     family: Droid Sans Mono for Powerline
     style: Bold Italic
+    # style: Bold
   offset:
     x: 0
     y: 5
