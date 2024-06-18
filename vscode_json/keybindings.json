@@ -1,0 +1,61 @@
+// Place your key bindings in this file to override the defaults
+[
+  {
+    "key": "k",
+    "command": "selectPrevCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "j",
+    "command": "selectNextCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "Enter",
+    "command": "acceptSelectedCodeAction",
+    "when": "codeActionMenuVisible"
+  },
+  {
+    "key": "cmd+k tab",
+    "command": "workbench.action.closePanel",
+    "when": "terminalFocus"
+  },
+  {
+    "key": "cmd+k tab",
+    "command": "workbench.action.toggleMaximizedPanel",
+    "when": "!terminalFocus"
+  },
+  // Get out of sidebar when navigated to via vim-unimpaired
+  {
+    "key": "] v",
+    "command": "workbench.action.navigateRight",
+    "when": "sideBarFocus && !inputFocus && !inputBoxFocus"
+  },
+  // Get out of markdown preview when navigated to via vim-unimpaired
+  {
+    "key": "[ b",
+    "command": "workbench.action.previousEditorInGroup",
+    "when": "actionWebViewPanelId == markdown.preview"
+  },
+  {
+    "key": "] b",
+    "command": "workbench.action.nextEditorInGroup",
+    "when": "actionWebViewPanelId == markdown.preview"
+  },
+  {
+    "key": "[ v",
+    "command": "workbench.action.navigateLeft",
+    "when": "actionWebViewPanelId == markdown.preview"
+  },
+  {
+    "key": "] v",
+    "command": "workbench.action.navigateRight",
+    "when": "actionWebViewPanelId == markdown.preview"
+  // attempt at allowing switch project in empty pane, but gets picked up even in command palette
+  // },
+  // {
+  //   "key": "g r",
+  //   "command": "workbench.action.openRecent",
+  //   "when": "!activeEditor"
+  }
+]

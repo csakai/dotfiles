@@ -1,0 +1,134 @@
+{
+    "editor.lineNumbers": "on",
+    "editor.stickyScroll.enabled": true,
+    "editor.fontFamily": "Droid Sans Mono for Powerline, Menlo, Monaco, 'Courier New', monospace",
+    "editor.tabSize": 2,
+    "editor.wordWrap": "on",
+    "editor.accessibilitySupport": "off",
+    "editor.cursorStyle": "line",
+    // the default
+    // "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?"
+    "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
+    "editor.suggestSelection": "first",
+    "editor.bracketPairColorization.enabled": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.guides.bracketPairs": "active",
+    "editor.minimap.enabled": false,
+    "terminal.integrated.confirmOnExit": "never",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[json]": {
+        "editor.defaultFormatter": "vscode.json-language-features",
+        "editor.quickSuggestions": {
+            "strings": true
+        },
+        "editor.suggest.insertMode": "replace"
+    },
+    "[markdown]": {
+        "files.trimTrailingWhitespace": false
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "files.trimFinalNewlines": true,
+    "search.collapseResults": "alwaysCollapse",
+    "vim.hlsearch": true,
+    "vim.leader": "<space>",
+    "vim.normalModeKeyBindingsNonRecursive": [
+        // easily switch workspaces or go to recent files
+        {
+            "before": ["g", "r"],
+            "commands": ["workbench.action.openRecent"]
+        },
+        // vim-unimpaired
+        // navigate project linting error
+        {
+            "before": ["[", "q"],
+            "commands": ["editor.action.marker.prevInFiles"]
+        },
+        {
+            "before": ["]", "q"],
+            "commands": ["editor.action.marker.nextInFiles"]
+        },
+        // navigate buffers
+        {
+            "before": ["[", "b"],
+            "commands": ["workbench.action.previousEditorInGroup"]
+        },
+        {
+            "before": ["]", "b"],
+            "commands": ["workbench.action.nextEditorInGroup"]
+        },
+        // navigate vertical splits
+        {
+            "before": ["[", "v"],
+            "commands": ["workbench.action.navigateLeft"]
+        },
+        {
+            "before": ["]", "v"],
+            "commands": ["workbench.action.navigateRight"]
+        },
+        // navigate horizontal splits
+        {
+            "before": ["[", "s"],
+            "commands": ["workbench.action.navigateUp"]
+        },
+        {
+            "before": ["]", "s"],
+            "commands": ["workbench.action.navigateDown"]
+        },
+        // handle merge conflicts
+        {
+            "before": ["<leader>", "z"],
+            "commands": ["merge-conflict.accept.current"]
+        },
+        {
+            "before": ["<leader>", "x"],
+            "commands": ["merge-conflict.accept.incoming"]
+        },
+        {
+            "before": ["<leader>", "c"],
+            "commands": ["merge-conflict.accept.both"]
+        },
+        // sidebar
+        {
+            "before": ["<leader>", "t"],
+            "commands": ["workbench.action.toggleSidebarVisibility"]
+        },
+        // navigation
+        {
+            "before": ["<leader>", "f"],
+            "commands": ["revealInExplorer"]
+        },
+        // file operation
+        {
+            "before": ["<leader>", "r", "f"],
+            "commands": ["fileutils.renameFile"]
+        }
+    ],
+    "vim.smartRelativeLine": true,
+    "vim.statusBarColors.replace": "",
+    "Notes.notesLocation": "/Users/csakai/vs-code-notes",
+    "files.trimTrailingWhitespace": true,
+    // not sure what this is for
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+    "workbench.startupEditor": "none",
+    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "explorer.fileNesting.enabled": true,
+    "explorer.fileNesting.patterns":{
+        "*.ts": "${capture}.js, ${capture}.test.ts, ${capture}.test.tsx",
+        "*.js": "${capture}.js.map, ${capture}.min.js, ${capture}.d.ts, ${capture}.test.js",
+        "*.jsx": "${capture}.js, ${capture}.test.jsx",
+        "*.tsx": "${capture}.ts, ${capture}.test.tsx",
+        "tsconfig.json": "tsconfig.*.json",
+        "package.json": "package-lock.json, yarn.lock, pnpm-lock.yaml"
+    },
+    "figma.autocompleteBlocks": true,
+    "window.zoomLevel": 1,
+    "vim.showMarksInGutter": true
+}
