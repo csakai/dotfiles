@@ -4,6 +4,14 @@
 curl -K https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash -o ~/git-completion.bash
 curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
 curl -K https://raw.githubusercontent.com/github/hub/master/etc/hub.bash_completion.sh -o ~/hub.bash_completion.bash
+
+brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
+
+brew install starship
+echo 'eval "$(starship init zsh)"' >> ~/.zshrc
+
+brew install --cask font-hack-nerd-font
 ```
 
 # Oh My Zsh!
@@ -50,6 +58,7 @@ brew install --cask alacritty
 ```
 
 # Terminal font for Powerline
+**Temporarily not using in favor of Hack Nerd Font as I was having trouble getting this to work**
 https://github.com/powerline/fonts/blob/master/DroidSansMono/Droid%20Sans%20Mono%20for%20Powerline.otf
 
 ```bash
@@ -60,6 +69,8 @@ brew install --cask font-droid-sans-mono-nerd-font
 
 # Tmux
 Found here: https://tmux.github.io/
+
+**Temporarily not using tmux as my config is very out of date and kind of broken**
 
 ## Config
 I put comment banners to separate specific configuration pieces into sections. It makes it easier to find what's where.
