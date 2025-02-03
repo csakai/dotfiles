@@ -72,9 +72,9 @@ export ZSH="$HOME/.oh-my-zsh"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 # plugins=(copyfile jira jsontools last-working-dir npm macos per-directory-history tmux web-search yarn)
-plugins=(copyfile jsontools last-working-dir npm macos tmux web-search yarn)
+plugins=(copyfile jsontools last-working-dir npm macos web-search yarn)
 
-ZSH_TMUX_AUTOSTART="true"
+# ZSH_TMUX_AUTOSTART="true"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
