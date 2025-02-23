@@ -1,5 +1,6 @@
 // Place your key bindings in this file to override the defaults
 [
+  // vim-like navigation of codeActionMenu
   {
     "key": "k",
     "command": "selectPrevCodeAction",
@@ -15,11 +16,43 @@
     "command": "acceptSelectedCodeAction",
     "when": "codeActionMenuVisible"
   },
+  // tmux-like terminal navigation
+  {
+    "key": "cmd+k c",
+    "command": "workbench.action.terminal.new",
+    "when": "terminalFocus"
+  },
+  // go to next terminal window
+  {
+    "key": "cmd+k `",
+    "command": "workbench.action.terminal.focusNext",
+    "when": "terminalFocus"
+  },
+  // go to previous terminal window
+  {
+    "key": "cmd+k shift+`",
+    "command": "workbench.action.terminal.focusPrevious",
+    "when": "terminalFocus"
+  },
+  // navigate split terminal left
+  {
+    "key": "cmd+k h",
+    "command": "workbench.action.terminal.focusPreviousPane",
+    "when": "terminalFocus"
+  },
+  // navigate split terminal right
+  {
+    "key": "cmd+k l",
+    "command": "workbench.action.terminal.focusNextPane",
+    "when": "terminalFocus"
+  },
+  // close terminal, focus editor
   {
     "key": "cmd+k tab",
     "command": "workbench.action.closePanel",
     "when": "terminalFocus"
   },
+  // full-screen terminal from editor
   {
     "key": "cmd+k tab",
     "command": "workbench.action.toggleMaximizedPanel",
