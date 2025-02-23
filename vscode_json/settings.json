@@ -1,7 +1,7 @@
 {
     "editor.lineNumbers": "on",
     "editor.stickyScroll.enabled": true,
-    "editor.fontFamily": "Hack Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Hack Nerd Font Mono, Droid Sans Mono for Powerline, Menlo, Monaco, 'Courier New', monospace",
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "editor.accessibilitySupport": "off",
@@ -10,8 +10,6 @@
     // "editor.wordSeparators": "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?"
     "editor.wordSeparators": "/\\()\"':,.;<>~!@#$%^&*|+=[]{}`?-",
     "editor.suggestSelection": "first",
-    "editor.bracketPairColorization.enabled": true,
-    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
     "editor.guides.bracketPairs": "active",
     "editor.minimap.enabled": false,
     "terminal.integrated.confirmOnExit": "never",
@@ -118,7 +116,7 @@
     // not sure what this is for
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "workbench.startupEditor": "none",
-    "terminal.integrated.enableMultiLinePasteWarning": false,
+    "terminal.integrated.enableMultiLinePasteWarning": "never",
     "explorer.fileNesting.enabled": true,
     "explorer.fileNesting.patterns":{
         "*.ts": "${capture}.js, ${capture}.test.ts, ${capture}.test.tsx",
@@ -130,5 +128,9 @@
     },
     "figma.autocompleteBlocks": true,
     "window.zoomLevel": 1,
-    "vim.showMarksInGutter": true
+    "vim.showMarksInGutter": true,
+    "editor.bracketPairColorization.independentColorPoolPerBracketType": true,
+    "editor.semanticTokenColorCustomizations": {},
+    "chat.commandCenter.enabled": false,
+    "security.workspace.trust.untrustedFiles": "open"
 }
