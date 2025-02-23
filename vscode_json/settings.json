@@ -1,7 +1,7 @@
 {
     "editor.lineNumbers": "on",
     "editor.stickyScroll.enabled": true,
-    "editor.fontFamily": "Droid Sans Mono for Powerline, Menlo, Monaco, 'Courier New', monospace",
+    "editor.fontFamily": "Hack Nerd Font Mono, Menlo, Monaco, 'Courier New', monospace",
     "editor.tabSize": 2,
     "editor.wordWrap": "on",
     "editor.accessibilitySupport": "off",
